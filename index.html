@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experience CNY</title>
+</head>
+
+<main>
+<body>
+
+<header>
+  <div class="topnav">
+    <a class="active" href="https://www.youtube.com/watch?v=Bs0GuU0cUtw&ab_channel=AsiaHOT" target="_blank">YouTube</a>
+    <a href="https://docs.google.com/document/d/1gBrbmTApx0rK3dxmGVK7qdX-gneNwNhQcXvkZJ9R2B0/edit?usp=sharing" target="_blank">My Notes</a>
+        <a href="https://twitter.com/paindesuxd/status/1491133157412044800?s=20&t=7A88lLeWURXues1RgH5d9A" target="_blank">My Twitter</a>
+    <a href="https://www.google.com/maps/d/u/0/edit?mid=1RFvjcpOakywMSzvHIHl9is2PpC1mm3t_&usp=sharing" target="_blank">My Map</a>
+  </div>
+</header>
+
+<button onclick = "topFunction()" id="myBtn" title="Go to top">Back to Top</button>
+
+  <div class="container">
+    <section id="section-1">
+      <div id="lion">
+  <a href="file:///Users/annasham/Desktop/parsons%20s21/Core%20Interaction%202/CNY-WEB/index-video.html">
+  <img src="Images/chinese-lion.png", width="5%"></a>
+  </div>
+      <h1> Chinese New Year </h1>
+      <h6> click on the lion to see it dance!</h6>
+      <p> ↓ </p>
+
+
+</section>
+
+  <div class="pyro">
+  <div class="before"></div>
+  <div class="after"></div>
+</div>
+
+<section id="section-2">
+<h1> What is Chinese New Year? </h1>
+  <p> Chinese New Year is when families gather and spend time together.
+    One of the more distinctive traits about CNY is Hong Bao, (red pocket money).
+    Hong Bao is a monetary gift given to "ward off old age".
+    Click on the hong bao and drag it!
+  </p>
+
+<div id="image">
+  <div id="hong-bao"></div>
+  <img src="Images/hong-bao.png", width="20%">
+</div>
+
+</section>
+
+<section id="section-3">
+  <p> "Lunar New Year is one of the most important celebrations of the year among East and Southeast Asian cultures,
+    including Chinese, Vietnamese and Korean communities, among others. The New Year celebration is usually
+    celebrated for multiple days—not just one day as in the Gregorian calendar’s New Year." <br>
+    –History.com</p>
+</section>
+
+</div>
+
+</body>
+</main>
+
+<script>
+
+//draggable div
+  (function(d) {
+    var config = {
+      kitId: 'dhh2sxb',
+      scriptTimeout: 3000,
+      async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+
+// drag hong bao //
+  dragElement(document.getElementById("image"));
+
+  function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "section-2")) {
+    document.getElementById(elmnt.id + "section-2").onmousedown = dragMouseDown;
+  } else {
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+//button for scroll to top//
+var mybutton =
+document.getElementById("myBtn");
+
+window.onscroll = function()
+{scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 ||
+  document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+</script>
